@@ -18,12 +18,9 @@ red_wine['type'] = 'Red'
 white_wine['type'] = 'White'
 data = pd.concat([red_wine, white_wine], axis=0)
 
-
-
 correlation_matrix = data.select_dtypes(include=['float64', 'int64']).corr()
 print("\nKoefisien Korelasi (R) antara fitur dan kualitas:")
 print(correlation_matrix['quality'])
-
 
 features = ['volatile acidity', 'citric acid', 'residual sugar', 'free sulfur dioxide']
 X = data[features]
@@ -67,7 +64,6 @@ def classify_wine(features_input):
     # Prediksi menggunakan model SVM
     prediction = svm_model.predict(features_pca)
     return prediction[0]
-
 
 # Contoh penggunaan fungsi klasifikasi
 # Input contoh: volatile acidity=0.5, citric acid=0.3, residual sugar=3.0, free sulfur dioxide=20
@@ -155,9 +151,6 @@ print(f"Prediksi untuk red wine dengan fitur {red_wine_features}: {red_wine_pred
 white_wine_features = [0.3, 0.4, 6.0, 25]
 white_wine_prediction = classify_wine(white_wine_features)
 print(f"Prediksi untuk white wine dengan fitur {white_wine_features}: {white_wine_prediction}")
-
-
-
 
 # volatile acidity = 0.7: Cenderung lebih tinggi pada red wine.
 # citric acid = 0.2: Relatif lebih rendah pada red wine.
