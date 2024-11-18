@@ -8,13 +8,17 @@ white_wine = pd.read_csv('winequality-white_clean_preprocessing.csv')
 # Inisialisasi MinMax Scaler dengan rentang [0, 1]
 scaler = MinMaxScaler()
 
-# Normalisasi dataset red wine
-red_wine_normalized = pd.DataFrame(scaler.fit_transform(red_wine), columns=red_wine.columns)
+# Normalisasi dataset red wine kecuali kolom 'quality'
+red_wine_features = red_wine.drop(columns=['quality'])  # Memisahkan fitur dari kolom quality
+red_wine_normalized = pd.DataFrame(scaler.fit_transform(red_wine_features), columns=red_wine_features.columns)
+red_wine_normalized['quality'] = red_wine['quality']  # Menambahkan kembali kolom quality
 print("=========== Red Wine Normalized ===========")
 print(red_wine_normalized.head())
 
-# Normalisasi dataset white wine
-white_wine_normalized = pd.DataFrame(scaler.fit_transform(white_wine), columns=white_wine.columns)
+# Normalisasi dataset white wine kecuali kolom 'quality'
+white_wine_features = white_wine.drop(columns=['quality'])  # Memisahkan fitur dari kolom quality
+white_wine_normalized = pd.DataFrame(scaler.fit_transform(white_wine_features), columns=white_wine_features.columns)
+white_wine_normalized['quality'] = white_wine['quality']  # Menambahkan kembali kolom quality
 print("\n=========== White Wine Normalized ===========")
 print(white_wine_normalized.head())
 
