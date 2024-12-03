@@ -175,6 +175,8 @@ def classify_wine_from_input():
     return prediction[0]
 
 # Memanggil fungsi untuk input manual
+# red line 3 bad, 10 good, 53 good
+# white line 1 good, 19 good, 49 bad
 print("\n===== Prediksi Wine Berdasarkan Input Manual =====")
 prediction_manual = classify_wine_from_input()
 if prediction_manual:
