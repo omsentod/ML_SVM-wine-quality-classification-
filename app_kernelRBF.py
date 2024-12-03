@@ -65,7 +65,7 @@ grid_search_svm.fit(X_train, y_train)
 
 # Menampilkan hasil GridSearchCV
 print("\n===== Hasil GridSearchCV =====")
-print(f"Parameter terbaik untuk SVM: {grid_search_svm.best_params_}")
+print(f"Parameter untuk SVM: {grid_search_svm.best_params_}")
 
 # Prediksi dan evaluasi model SVM
 svm_model = grid_search_svm.best_estimator_
